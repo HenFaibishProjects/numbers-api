@@ -1,0 +1,21 @@
+<input type="number" id="num" />
+<button onclick="postNumber()">Add</button>
+<button onclick="getNumbers()">Get All</button>
+<pre id="output"></pre>
+
+<script>
+  async function postNumber() {
+    const value = document.getElementById('num').value;
+    await fetch('/numbers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ value: Number(value) })
+    });
+  }
+
+  async function getNumbers() {
+    const res = await fetch('/numbers');
+    const data = await res.json();
+    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+  }
+</script>
