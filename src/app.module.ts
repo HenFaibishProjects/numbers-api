@@ -17,7 +17,6 @@ import { NumberEntity } from './number/entities/number.entity';
       entities: [NumberEntity],
       synchronize: true, // auto-create table (dev only)
     }),
-    TypeOrmModule.forFeature([NumberEntity]),
     NumberModule,
   ],
   controllers: [AppController],
